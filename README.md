@@ -244,11 +244,10 @@ Steps to reproduce:
 2. Hit the GET `{{baseUrl}}/` endpoint which you can find in the request named `0-Vulernable API - Home`
 ![image](images/baseURL-result.png)
 3. Hit the GET `{{baseUrl}}/books/v1` endpoint which you can find in the request named `1-Retrieves all books` and note which book is owned by the individual users.
+![image](images/retrieve-books.png)
 4. Login to the service by hitting the POST  `{{baseUrl}}/users/v1/login` endpoint which you can find in the request named `2-Login to Vulnerable API` Do complete the body of the request with a username and password. Once you hit that, copy the bearer token of the user. 
 ![image](images/login.png)
-5. Retrieve all books by hitting the GET `{{baseUrl}}/books/v1/:book` endpoint
-![image](images/retrieve-books.png)
-6. Now we are gonna retrieve the book associated with the user **and** the associated secret using the collected Bearer Token by hitting the GET `{{baseUrl}}/books/v1/:book` endpoint. Ensure that you have copied the bearer token in the `Auth Type` and that you have an `apikey:apikey` configured in the headers. You also need to complete the path variable `book` with one of the book titles. 
+5. Now we are gonna retrieve the book associated with the user **and** the associated secret using the collected Bearer Token by hitting the GET `{{baseUrl}}/books/v1/:book` endpoint. Ensure that you have copied the bearer token in the `Auth Type` and that you have an `apikey:apikey` configured in the headers. You also need to complete the path variable `book` with one of the book titles. 
 ![image](/images/retrieve-auth.png)
 ![image](/images/header-apikey.png)
 ![image](/images/get-specific-book.png)
