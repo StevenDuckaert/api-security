@@ -292,7 +292,7 @@ Steps to reproduce:
     ![image](/images/header-apikey2.png)
     ![image](/images/body.png)
 6. You can verify that you were able to successfully change the password from another user by hitting the GET `{{baseUrl}}/users/v1/_debug` endpoint again which you can find in the request named `1-Retrieves all details for all users` and :warning:  **note that you changed the password of another user** :scream:
-    ![image](images/newpass.png
+    ![image](images/newpass.png)
 
 :gift: And here's a bonus :wink: - the above described step 3 is a text book example of an **API Excessive Data Exposure** security issue. 
 
