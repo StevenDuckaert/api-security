@@ -1,5 +1,18 @@
 # API Security Hands-on Session
 
+- [API Security Hands-on Session](#api-security-hands-on-session)
+  - [Local Lab Setup](#local-lab-setup)
+    - [Pre-requisites :information_source:](#pre-requisites-information_source)
+    - [Step-by-Step Instructions](#step-by-step-instructions)
+      - [Step One: Kong Gateway & Cassandra Deployment](#step-one-kong-gateway--cassandra-deployment)
+      - [Step Two:  Vulnerable API Deployment](#step-two--vulnerable-api-deployment)
+      - [Step Three:  Configure Kong](#step-three--configure-kong)
+    - [Automated Deployment](#automated-deployment)
+    - [Postman Collection](#postman-collection)
+  - [Vulnerabilities we will simulate](#vulnerabilities-we-will-simulate)
+    - [Broken Object Level Authorization](#broken-object-level-authorization)
+    - [Unauthorized Password Change](#unauthorized-password-change)
+
 ## Local Lab Setup 
 
 ### Pre-requisites :information_source:
