@@ -254,7 +254,7 @@ Steps to reproduce:
 7. :bomb: **And here come's the BOLA**  :bomb:
     Do exactly as step 6, but now with a book associated to another user. 
     ![image](images/BOLA.png)
-    :warning: BOOM! You also got the secret from someone else.
+    :warning: BOOM! You were able to collect the secret from someone else.
     So in short: **You are authenticated into the system (bearer token) but you can access non-authorized data!**
 
 ### Unauthorized Password Change
@@ -280,3 +280,4 @@ Steps to reproduce:
     ![image](/images/body.png)
 6. You can verify that you were able to successfully change the password from another user by hitting the GET `{{baseUrl}}/users/v1/_debug` endpoint again which you can find in the request named `1-Retrieves all details for all users` and note that you changed the password of another user :scream:
     ![image](images/newpass.png)
+    :warning: BOOM! You were able to change the password from another user.
