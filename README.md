@@ -187,4 +187,5 @@ To be added
 ### Postman Collection
 The [postman collection file](lab-vapi.postman_collection.json) contains all the requests needed to 'play' with your vunerable API environment. Just go to the import option and select the .json file:
 ![image](images/postman-import.png)
+
 ![image](images/postman-collection.png)
