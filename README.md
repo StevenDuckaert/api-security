@@ -14,6 +14,7 @@ The easiest way is to install Docker Desktop :
     `
     brew install git
     `
+- **Postman** - or another API Client. Postman can be installed from [here](https://www.postman.com/downloads/)
 - **curl**: typically already installed on your machine. You can check this with `curl --version`
 
 ### Step-by-Step Instructions
