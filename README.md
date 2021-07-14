@@ -182,3 +182,9 @@ docker run -d --name vulnerable_vapi --network noname_default -p 127.0.0.1:5000:
         curl -X PATCH http://127.0.0.1:8001/routes/v1/plugins/<<uuid>> --data enabled=true
         ```
 ### Automated Deployment
+To be added
+
+### Postman Collection
+The [postman collection file](lab-vapi.postman_collection.json) contains all the requests needed to 'play' with your vunerable API environment. Just go to the import option and select the .json file:
+![image](images/postman-import.png)
+![image](images/postman-collection.png)
