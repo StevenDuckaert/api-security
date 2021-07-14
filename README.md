@@ -251,10 +251,32 @@ Steps to reproduce:
 ![image](/images/retrieve-auth.png)
 ![image](/images/header-apikey.png)
 ![image](/images/get-specific-book.png)
-7. :bomb: And here come's the BOLA :bomb:
+7. :bomb: **And here come's the BOLA**  :bomb:
     Do exactly as step 6, but now with a book associated to another user. 
     ![image](images/BOLA.png)
     :warning: BOOM! You also got the secret from someone else.
-    So in short: You are authenticated into the system (bearer token) but you can access non-authorized data!
+    So in short: **You are authenticated into the system (bearer token) but you can access non-authorized data!**
 
 ### Unauthorized Password Change
+Steps to reproduce:
+1. Open the Postman collection and head to the folder **-Step_by_step-Unauth_passwd_change**
+   * You will notice that some of the APIs have the Inherit auth from parent set. You can check the config of the "parent auth" here:
+    ![image](images/parent-auth.png)
+   * Some APIs will have the Bearer Token Auth Type. It will be clear why this is set like this later on.
+    ![image](images/bearer-token.png)
+   * the `{{baseUrl}}` is configured to point to your Kong gateway & route 
+    ![image](images/baseUrl.png)
+2. Hit the GET `{{baseUrl}}/` endpoint which you can find in the request named `0-Vulernable API - Home`
+![image](images/baseURL-result.png)
+3. Hit the GET `{{baseUrl}}/users/v1/_debug` endpoint which you can find in the request named `1-Retrieves all details for all users` and note usernames and passwords.
+![image](images/retrieve-all_users.png)
+4. Login to the service by hitting the POST  `{{baseUrl}}/users/v1/login` endpoint which you can find in the request named `2-Login to Vulnerable API` Do complete the body of the request with a username and password. Once you hit that, copy the bearer token of the user. 
+![image](images/login2.png)
+5. :bomb: **And here come's the Unauthorized Password Change** :bomb: 
+   Using the collected Bearer Token we are gonna hit the PUT `{{baseUrl}}/users/v1/:username/password` endpoint. Ensure that you have copied the bearer token in the `Auth Type` and that you have an `apikey:apikey` configured in the headers. You also need to complete the path variable `username` with another username then the one you requested the token for.  In the `body` you can enter a `new password`
+    ![image](/images/path-variable.png)
+    ![image](/images/bearer-token2.png)
+    ![image](/images/header-apikey2.png)
+    ![image](/images/body.png)
+6. You can verify that you were able to successfully change the password from another user by hitting the GET `{{baseUrl}}/users/v1/_debug` endpoint again which you can find in the request named `1-Retrieves all details for all users` and note that you changed the password of another user :scream:
+    ![image](images/newpass.png)
