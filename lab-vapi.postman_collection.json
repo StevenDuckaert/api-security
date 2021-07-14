@@ -1,0 +1,468 @@
+{
+	"info": {
+		"_postman_id": "f1730637-faa0-4480-8133-c5cb68769153",
+		"name": "lab-vapi",
+		"description": "OpenAPI v3 specs for VAmPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users/v1",
+			"item": [
+				{
+					"name": "-Step_by_step-BOLA",
+					"item": [
+						{
+							"name": "0-Vulernable API - Home",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								},
+								"description": "VAmPI is a vulnerable on purpose API. It was created in order to evaluate the efficiency of third party tools in identifying vulnerabilities in APIs but it can also be used in learning/teaching purposes."
+							},
+							"response": []
+						},
+						{
+							"name": "1-Retrieves all details for all users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/v1/_debug",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"v1",
+										"_debug"
+									]
+								},
+								"description": "Displays all details for all users"
+							},
+							"response": []
+						},
+						{
+							"name": "2-Login to Vulnerable API",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/v1/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"v1",
+										"login"
+									]
+								},
+								"description": "Login to Vulnerable API"
+							},
+							"response": []
+						},
+						{
+							"name": "3-Update users password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/v1/:username/password",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"v1",
+										":username",
+										"password"
+									],
+									"variable": [
+										{
+											"key": "username",
+											"value": "<string>",
+											"description": "(Required) username to update password"
+										}
+									]
+								},
+								"description": "Update users password"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "{username}",
+					"item": [
+						{
+							"name": "Retrieves user by username",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/v1/:username",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"v1",
+										":username"
+									],
+									"variable": [
+										{
+											"key": "username",
+											"value": "<string>",
+											"description": "(Required) retrieve username data"
+										}
+									]
+								},
+								"description": "Displays user by username"
+							},
+							"response": []
+						},
+						{
+							"name": "Deletes user by username (Only Admins)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjAyMTUwNTIsImlhdCI6MTYyMDIxNDk5Miwic3ViIjoibmFtZTIifQ.9miTAsOSHE7VUhWgPMlCfd8o_1qs8WP2lSF7WV2jEsY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/v1/:username",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"v1",
+										":username"
+									],
+									"variable": [
+										{
+											"key": "username",
+											"value": "name1",
+											"description": "(Required) Delete username"
+										}
+									]
+								},
+								"description": "Deletes user by username (Only Admins)"
+							},
+							"response": []
+						},
+						{
+							"name": "Update users email",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/v1/:username/email",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"v1",
+										":username",
+										"email"
+									],
+									"variable": [
+										{
+											"key": "username",
+											"value": "<string>",
+											"description": "(Required) username to update email"
+										}
+									]
+								},
+								"description": "Update a single users email"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Register new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"email\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/v1/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"v1",
+								"register"
+							]
+						},
+						"description": "Register new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"v1"
+							]
+						},
+						"description": "Displays all users with basic information"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "books/v1",
+			"item": [
+				{
+					"name": "Retrieves all books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"v1"
+							]
+						},
+						"description": "Retrieves all books"
+					},
+					"response": []
+				},
+				{
+					"name": "Add new book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"book_title\": \"<string>\",\n    \"secret\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/books/v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"v1"
+							]
+						},
+						"description": "Add new book"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves book by title along with secret",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/v1/:book",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"v1",
+								":book"
+							],
+							"variable": [
+								{
+									"key": "book",
+									"value": "<string>",
+									"description": "(Required) retrieve book data"
+								}
+							]
+						},
+						"description": "Retrieves book by title along with secret. Only the owner may retrieve it"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Creates and populates the database with dummy data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/createdb",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"createdb"
+					]
+				},
+				"description": "Creates and populates the database with dummy data"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		},
+		{
+			"value": "",
+			"disabled": true
+		}
+	]
+}
