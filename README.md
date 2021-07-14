@@ -25,12 +25,20 @@ The easiest way is to install Docker Desktop :
 * Pull the latest Kong image we will be using for the API Gateway
 `docker pull kong`
 * To make image management easier, it is always recommended to tag the image. In the below command we tag the Kong image with *kong-gw*
-`docker image list | grep kong`
-`docker tag <<id-from_the_above_output>> kong-gw`
+    ```
+    docker image list | grep kong
+    ```
+    ```
+    docker tag <<id-from_the_above_output>> kong-gw
+    ```
 * We'll create a Docker network to ensure all containers are provisioned into the same network
-`docker network create noname_default`
+    ```
+    docker network create noname_default
+    ```
 * Start a Cassandra container in the just created Docker network
-`docker run -d --name kong-db --network=noname_default -p 9042:9042 cassandra:3`
+    ```
+    docker run -d --name kong-db --network=noname_default -p 9042:9042 cassandra:3
+    ```
 * Once the Cassandra container is up - this typically takes less then 10 seconds, we will need to populate the DB
     ```
     docker run --rm \
