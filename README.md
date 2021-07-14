@@ -295,3 +295,8 @@ Steps to reproduce:
     ![image](images/newpass.png
 
 :gift: And here's a bonus :wink: - the above described step 3 is a text book example of an **API Excessive Data Exposure** security issue. 
+
+:star: **So with the above step-by-step instructions you were able to expose the top-3 risks described in the OWASP API Top-10 list** :star:
+1. API1:2019 Broken Object Level Authorization
+2. API2:2019 Broken User Authentication
+3. API3:2019 Excessive Data Exposure
