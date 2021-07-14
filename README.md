@@ -229,3 +229,33 @@ The [postman collection file](lab-vampi.postman_collection.json) contains all th
 ![image](images/postman-import.png)
 
 ![image](images/postman-collection.png)
+
+## Vulnerabilities we will simulate
+
+### Broken Object Level Authorization
+Steps to reproduce:
+1. Open the Postman collection and head to the folder **-Step_by_step-BOLA**
+   * You will notice that some of the APIs have the Inherit auth from parent set. You can check the config of the "parent auth" here:
+    ![image](images/parent-auth.png)
+   * Some APIs will have the Bearer Token Auth Type. It will be clear why this is set like this later on.
+    ![image](images/bearer-token.png)
+   * the `{{baseUrl}}` is configured to point to your Kong gateway & route 
+    ![image](images/baseUrl.png)
+2. Hit the GET `{{baseUrl}}/` endpoint which you can find in the request named `0-Vulernable API - Home`
+![image](images/baseURL-result.png)
+3. Hit the GET `{{baseUrl}}/books/v1` endpoint which you can find in the request named `1-Retrieves all books` and note which book is owned by the individual users.
+4. Login to the service by hitting the POST  `{{baseUrl}}/users/v1/login` endpoint which you can find in the request named `2-Login to Vulnerable API` Do complete the body of the request with a username and password. Once you hit that, copy the bearer token of the user. 
+![image](images/login.png)
+5. Retrieve all books by hitting the GET `{{baseUrl}}/books/v1/:book` endpoint
+![image](images/retrieve-books.png)
+6. Now we are gonna retrieve the book associated with the user **and** the associated secret using the collected Bearer Token by hitting the GET `{{baseUrl}}/books/v1/:book` endpoint. Ensure that you have copied the bearer token in the `Auth Type` and that you have an `apikey:apikey` configured in the headers. You also need to complete the path variable `book` with one of the book titles. 
+![image](/images/retrieve-auth.png)
+![image](/images/header-apikey.png)
+![image](/images/get-specific-book.png)
+7. :bomb: And here come's the BOLA :bomb:
+    Do exactly as step 6, but now with a book associated to another user. 
+    ![image](images/BOLA.png)
+    :warning: BOOM! You also got the secret from someone else.
+    So in short: You are authenticated into the system (bearer token) but you can access non-authorized data!
+
+### Unauthorized Password Change
