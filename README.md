@@ -9,7 +9,7 @@
       - [Step Three:  Configure Kong](#step-three--configure-kong)
     - [Automated Deployment](#automated-deployment)
     - [Postman Collection](#postman-collection)
-  - [Vulnerabilities we will simulate](#vulnerabilities-we-will-simulate)
+  - [:fire: Vulnerabilities we will simulate :fire:](#fire-vulnerabilities-we-will-simulate-fire)
     - [Broken Object Level Authorization](#broken-object-level-authorization)
     - [Unauthorized Password Change](#unauthorized-password-change)
 
@@ -243,7 +243,7 @@ The [postman collection file](lab-vampi.postman_collection.json) contains all th
 
 ![image](images/postman-collection.png)
 
-## Vulnerabilities we will simulate
+## :fire: Vulnerabilities we will simulate :fire:
 
 ### Broken Object Level Authorization
 Steps to reproduce:
