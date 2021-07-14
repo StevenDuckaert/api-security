@@ -91,22 +91,22 @@ There are several projects whereby you can quickly explore API vulnerabilities. 
 
 Deploy the vulnerable API environment
 ```
-docker run -d --name vulnerable_vapi --network noname_default -p 127.0.0.1:5000:5000 stevenduckaert/api-security:vulnerable
+docker run -d --name vulnerable_api --network noname_default -p 127.0.0.1:5000:5000 stevenduckaert/api-security:vulnerable
 ```
 #### Step Three:  Configure Kong
 - Create a Kong service
     ```
     curl -i -X POST http://127.0.0.1:8001/services \
-    --data name=lab-vapi \
+    --data name=lab-vampi \
     --data url='http://host.docker.internal:5000'
     ```
 - Verify the Kong Service connection
     ```
-    curl -i http://127.0.0.1:8001/services/lab-vapi
+    curl -i http://127.0.0.1:8001/services/lab-vampi
     ```
 - Create a Kong route
     ```
-    curl -i -X POST http://127.0.0.1:8001/services/lab-vapi/routes \
+    curl -i -X POST http://127.0.0.1:8001/services/lab-vampi/routes \
     --data 'paths[]=/v1' \
     --data name=v1
     ```
@@ -144,7 +144,7 @@ docker run -d --name vulnerable_vapi --network noname_default -p 127.0.0.1:5000:
 
   - You can show the service config by issuing
     ```
-    curl -i http://127.0.0.1:8001/services/lab-vapi
+    curl -i http://127.0.0.1:8001/services/lab-vampi
     ```
 
 - We will also configure authentication for the Kong v1 route 
@@ -193,7 +193,7 @@ docker run -d --name vulnerable_vapi --network noname_default -p 127.0.0.1:5000:
 To be added
 
 ### Postman Collection
-The [postman collection file](lab-vapi.postman_collection.json) contains all the requests needed to 'play' with your vunerable API environment. Just go to the import option and select the .json file:
+The [postman collection file](lab-vampi.postman_collection.json) contains all the requests needed to 'play' with your vunerable API environment. Just go to the import option and select the .json file:
 ![image](images/postman-import.png)
 
 ![image](images/postman-collection.png)
