@@ -189,6 +189,38 @@ docker run -d --name vulnerable_api --network noname_default -p 127.0.0.1:5000:5
         ```
         curl -X PATCH http://127.0.0.1:8001/routes/v1/plugins/<<uuid>> --data enabled=true
         ```
+
+:information_source: Note the difference when you hit the API via it's '*native*' port `5000`  vs hitting the same API via the Kong gateway (over port `8000`)
+```
+❯ curl -i http://127.0.0.1:5000
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 356
+Server: Werkzeug/1.0.1 Python/3.9.6
+Date: Wed, 14 Jul 2021 17:15:48 GMT
+
+{ "message":...} %
+```
+```
+❯ curl -i http://127.0.0.1:8000/v1/ -H 'apikey:apikey'
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 356
+Connection: keep-alive
+RateLimit-Reset: 9
+X-RateLimit-Remaining-Minute: 3
+X-RateLimit-Limit-Minute: 5
+RateLimit-Remaining: 3
+RateLimit-Limit: 5
+Server: Werkzeug/1.0.1 Python/3.9.6
+Date: Wed, 14 Jul 2021 17:15:52 GMT
+X-Kong-Upstream-Latency: 6
+X-Kong-Proxy-Latency: 16
+Via: kong/2.5.0
+
+{ "message": ... } %
+```
 ### Automated Deployment
 To be added
 
