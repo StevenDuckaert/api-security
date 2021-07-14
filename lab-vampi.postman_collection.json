@@ -7,127 +7,235 @@
 	},
 	"item": [
 		{
-			"name": "users/v1",
+			"name": "-Step_by_step-Unauth_passwd_change",
 			"item": [
 				{
-					"name": "-Step_by_step-BOLA",
-					"item": [
-						{
-							"name": "0-Vulernable API - Home",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										""
-									]
-								},
-								"description": "VAmPI is a vulnerable on purpose API. It was created in order to evaluate the efficiency of third party tools in identifying vulnerabilities in APIs but it can also be used in learning/teaching purposes."
-							},
-							"response": []
+					"name": "0-Vulernable API - Home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
 						},
-						{
-							"name": "1-Retrieves all details for all users",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/users/v1/_debug",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"users",
-										"v1",
-										"_debug"
-									]
-								},
-								"description": "Displays all details for all users"
-							},
-							"response": []
-						},
-						{
-							"name": "2-Login to Vulnerable API",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/users/v1/login",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"users",
-										"v1",
-										"login"
-									]
-								},
-								"description": "Login to Vulnerable API"
-							},
-							"response": []
-						},
-						{
-							"name": "3-Update users password",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "<Bearer Token>",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"password\": \"<string>\"\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/users/v1/:username/password",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"users",
-										"v1",
-										":username",
-										"password"
-									],
-									"variable": [
-										{
-											"key": "username",
-											"value": "<string>",
-											"description": "(Required) username to update password"
-										}
-									]
-								},
-								"description": "Update users password"
-							},
-							"response": []
-						}
-					]
+						"description": "VAmPI is a vulnerable on purpose API. It was created in order to evaluate the efficiency of third party tools in identifying vulnerabilities in APIs but it can also be used in learning/teaching purposes."
+					},
+					"response": []
 				},
+				{
+					"name": "1-Retrieves all details for all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/v1/_debug",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"v1",
+								"_debug"
+							]
+						},
+						"description": "Displays all details for all users"
+					},
+					"response": []
+				},
+				{
+					"name": "2-Login to Vulnerable API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/v1/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"v1",
+								"login"
+							]
+						},
+						"description": "Login to Vulnerable API"
+					},
+					"response": []
+				},
+				{
+					"name": "3-Update users password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/v1/:username/password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"v1",
+								":username",
+								"password"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "<string>",
+									"description": "(Required) username to update password"
+								}
+							]
+						},
+						"description": "Update users password"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "-Step_by_step-BOLA",
+			"item": [
+				{
+					"name": "0-Vulernable API - Home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "VAmPI is a vulnerable on purpose API. It was created in order to evaluate the efficiency of third party tools in identifying vulnerabilities in APIs but it can also be used in learning/teaching purposes."
+					},
+					"response": []
+				},
+				{
+					"name": "1-Retrieves all books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"v1"
+							]
+						},
+						"description": "Retrieves all books"
+					},
+					"response": []
+				},
+				{
+					"name": "2-Login to Vulnerable API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/v1/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"v1",
+								"login"
+							]
+						},
+						"description": "Login to Vulnerable API"
+					},
+					"response": []
+				},
+				{
+					"name": "3-Retrieves book by title along with secret",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/v1/:book",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"v1",
+								":book"
+							],
+							"variable": [
+								{
+									"key": "book",
+									"value": "<string>",
+									"description": "(Required) retrieve book data"
+								}
+							]
+						},
+						"description": "Retrieves book by title along with secret. Only the owner may retrieve it"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users/v1",
+			"item": [
 				{
 					"name": "{username}",
 					"item": [
@@ -435,6 +543,21 @@
 			"response": []
 		}
 	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "apikey",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "apikey",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
