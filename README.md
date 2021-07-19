@@ -106,6 +106,11 @@ Deploy the vulnerable API environment
 ```
 docker run -d --name vulnerable_api --network noname_default -p 127.0.0.1:5000:5000 stevenduckaert/api-security:vulnerable
 ```
+
+You can test the vulnerable api by hitting: 
+```
+curl -i -X GET http://127.0.0.1:5000
+```
 #### Step Three:  Configure Kong
 - Create a Kong service
     ```
