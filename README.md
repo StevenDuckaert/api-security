@@ -159,7 +159,9 @@ curl -i -X GET http://127.0.0.1:5000
     
     "message":"API rate limit exceeded"
     ```
-
+  You can also check the API rate limit "result" from within your browser:
+  ![image](images/API%20Request%20Limit.png)
+  
   - You can show the service config by issuing
     ```
     curl -i http://127.0.0.1:8001/services/lab-vampi
