@@ -94,6 +94,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "apikey",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -143,6 +148,26 @@
 							]
 						},
 						"description": "VAmPI is a vulnerable on purpose API. It was created in order to evaluate the efficiency of third party tools in identifying vulnerabilities in APIs but it can also be used in learning/teaching purposes."
+					},
+					"response": []
+				},
+				{
+					"name": "1a-Retrieves all details for all users Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/v1/_debug",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"v1",
+								"_debug"
+							]
+						},
+						"description": "Displays all details for all users"
 					},
 					"response": []
 				},
@@ -208,7 +233,13 @@
 							]
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "apikey",
+								"value": "apikey",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{baseUrl}}/books/v1/:book",
 							"host": [
