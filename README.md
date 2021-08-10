@@ -78,10 +78,10 @@ The easiest way is to install Docker Desktop :
         -e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
         -e "KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl" \
         -e "KONG_PlUGINS=bundles" \
-        -p 127.0.0.1:8000:8000 \
-        -p 127.0.0.1:8443:8443 \
-        -p 127.0.0.1:8001:8001 \
-        -p 127.0.0.1:8444:8444 \
+        -p 8000:8000 \
+        -p 8443:8443 \
+        -p 8001:8001 \
+        -p 8444:8444 \
         kong-gw
    ```
 * When the container is up, you can verify the Kong GW via:
