@@ -104,7 +104,7 @@ There are several projects whereby you can quickly explore API vulnerabilities. 
 
 Deploy the vulnerable API environment
 ```
-docker run -d --name vulnerable_api --network noname_default -p 127.0.0.1:5000:5000 stevenduckaert/api-security:vulnerable
+docker run -d --name vulnerable_api --network noname_default -p 5000:5000 stevenduckaert/api-security:vulnerable
 ```
 
 You can test the vulnerable api by hitting: 
